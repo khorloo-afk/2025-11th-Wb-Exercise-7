@@ -1,1 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counter App</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f4f4f9;
+      }
+      .counter-container {
+        text-align: center;
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      #counter-value {
+        font-size: 64px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        transition: color 0.2s ease;
+      }
+      .negative {
+        color: red;
+      }
+      .btn-group {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: white;
+        transition: background-color 0.2s;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+      button#reset {
+        background-color: #6c757d;
+      }
+      button#reset:hover {
+        background-color: #545b62;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="counter-container">
+      <div id="counter-value">0</div>
+      <div class="btn-group">
+        <button id="decrease">-</button>
+        <button id="reset">Reset</button>
+        <button id="increase">+</button>
+      </div>
+    </div>
+
+    <script>
+      const counterValue = document.getElementById("counter-value");
+      const decreaseBtn = document.getElementById("decrease");
+      const resetBtn = document.getElementById("reset");
+      const increaseBtn = document.getElementById("increase");
+
+      let count = 0;
+
+      function updateDisplay() {
+        counterValue.textContent = count;
+
+        if (count < 0) {
+          counterValue.classList.add("negative");
+        } else {
+          counterValue.classList.remove("negative");
+        }
+      }
+
+      increaseBtn.addEventListener("click", () => {
+        count++;
+        updateDisplay();
+      });
+
+      decreaseBtn.addEventListener("click", () => {
+        count--;
+        updateDisplay();
+      });
+
+      resetBtn.addEventListener("click", () => {
+        count = 0;
+        updateDisplay();
+      });
+    </script>
+  </body>
+</html>
 
