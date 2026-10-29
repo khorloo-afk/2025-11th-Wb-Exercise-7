@@ -1,1 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 100px;
+      }
+      #box {
+        width: 150px;
+        height: 150px;
+        background-color: orange;
+        margin: 0 auto;
+        cursor: pointer;
+        transition:
+          width 0.3s,
+          height 0.3s,
+          background-color 0.3s;
+      }
+      #box:hover {
+        background-color: orange;
+      }
+      p {
+        margin-top: 25px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box"></div>
+    <script>
+      const box = document.getElementById("box");
+      let size = 150;
+      box.addEventListener("click", function () {
+        size += 30;
+        box.style.width = size + "px";
+        box.style.height = size + "px";
+      });
+      box.addEventListener("dblclick", function () {
+        size = 150;
+        box.style.width = size + "px";
+        box.style.height = size + "px";
+      });
+    </script>
+  </body>
+</html>
    <!-- Write your code here -->
